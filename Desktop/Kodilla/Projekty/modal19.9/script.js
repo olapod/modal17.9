@@ -1,8 +1,3 @@
-ReactDOM.render(
-    <App />,
-    document.getElementById('root')
-  );
-
   class App extends React.Component {
     constructor() {
       super();
@@ -29,7 +24,8 @@ ReactDOM.render(
 
     render() {
       return (
-        <div>
+        <div className="container">
+          <h1 className="main_title">GitHub User Searching Machine</h1>
           <form onSubmit={event => this.onSubmit(event)}>
             <label htmlFor="searchText">Search by user name</label>
             <input
@@ -51,7 +47,7 @@ ReactDOM.render(
   
     render() {
       return (
-        <div>
+        <div className="users">
           {this.users}
         </div>
       );
@@ -61,10 +57,15 @@ ReactDOM.render(
   class User extends React.Component {
     render() {
       return (
-        <div>
-          <img src={this.props.user.avatar_url} style={{maxWidth: '100px'}}/>
-          <a href={this.props.user.html_url} target="_blank">{this.props.user.login}</a>
+        <div className="user">
+          <img className="avatar" src={this.props.user.avatar_url} style={{ maxWidth: '250px' }} />
+          <a className="user_name" href={this.props.user.html_url} target="_blank">{this.props.user.login}</a>
         </div>
       );
     }
   }
+
+  ReactDOM.render(
+    <App />,
+    document.getElementById('root')
+  );
